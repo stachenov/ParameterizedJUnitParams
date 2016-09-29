@@ -25,7 +25,7 @@ import org.junit.runners.parameterized.*;
  * 
  * Makes the {@code Parameterized} runner create instances of JUnitParams
  * runners to actually run test methods. Use like this:
- * <pre>{@code
+ * <pre>
 &#064;RunWith(Parameterized.class)
 &#064;Parameterized.UseParametersRunnerFactory(ParameterizedJUnitParamsRunnerFactory.class)
 public class YourTest {
@@ -50,7 +50,8 @@ public class YourTest {
     public void testMethod(int number, String string) {
         // do some assertions
     }
- * }</pre>
+ * </pre>
+ * 
  * @author Sergey A. Tachenov
  */
 public class ParameterizedJUnitParamsRunnerFactory implements ParametersRunnerFactory {

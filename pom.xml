@@ -3,8 +3,38 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>name.tachenov.ParameterizedJUnitParams</groupId>
     <artifactId>ParameterizedJUnitParams</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
+    <build>
+        <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-source-plugin</artifactId>
+              <version>3.0.1</version>
+              <executions>
+                <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                    <goal>jar</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>2.10.4</version>
+              <executions>
+                <execution>
+                  <id>attach-javadocs</id>
+                  <goals>
+                    <goal>jar</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -28,4 +58,11 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>bintray-stachenov-maven</id>
+            <name>stachenov-maven</name>
+            <url>https://api.bintray.com/maven/stachenov/maven/ParameterizedJUnitParams/;publish=1</url>
+        </repository>
+    </distributionManagement>
 </project>
