@@ -18,7 +18,6 @@ package name.tachenov.junitparams;
 
 import java.util.*;
 import junitparams.*;
-import org.junit.runner.*;
 import org.junit.runners.model.*;
 import org.junit.runners.parameterized.*;
 

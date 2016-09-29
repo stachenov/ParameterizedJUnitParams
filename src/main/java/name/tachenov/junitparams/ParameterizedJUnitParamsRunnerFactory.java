@@ -25,6 +25,7 @@ import org.junit.runners.parameterized.*;
  * 
  * Makes the {@code Parameterized} runner create instances of JUnitParams
  * runners to actually run test methods. Use like this:
+ * <p>
  * <pre>
 &#064;RunWith(Parameterized.class)
 &#064;Parameterized.UseParametersRunnerFactory(ParameterizedJUnitParamsRunnerFactory.class)
@@ -50,7 +51,16 @@ public class YourTest {
     public void testMethod(int number, String string) {
         // do some assertions
     }
+}
  * </pre>
+ * <p>
+ * For every test method, you'll get a Cartesian product
+ * of the parameterized fixtures with method parameters.
+ * In the example above, the test method will be run four times,
+ * two times with {@code this.string} equal to {@code "String one"},
+ * but different parameters, and two more times with
+ * {@code this.string} equal to {@code "String two"}, again
+ * with different parameters.
  * 
  * @author Sergey A. Tachenov
  */
