@@ -1,3 +1,6 @@
+1.0.5
+    Migration to Maven Central, no code changes, just POM
+
 1.0.4
     Dependency updates, especially JUnit 4.13.1 that fixes GHSA-269g-pwp5-87pp:
     https://github.com/advisories/GHSA-269g-pwp5-87pp

@@ -3,8 +3,29 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>name.tachenov.ParameterizedJUnitParams</groupId>
     <artifactId>ParameterizedJUnitParams</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>A runner factory to make JUnitParams work with Parameterized and vice versa</description>
+    <url>https://github.com/stachenov/ParameterizedJUnitParams</url>
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Sergei Tachenov</name>
+            <email>sergei@tachenov.name</email>
+            <url>https://github.com/stachenov</url>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/stachenov/ParameterizedJUnitParams.git</connection>
+        <developerConnection>scm:git:https://github.com/stachenov/ParameterizedJUnitParams</developerConnection>
+        <url>https://github.com/stachenov/ParameterizedJUnitParams</url>
+    </scm>
     <build>
         <plugins>
             <plugin>
@@ -29,6 +50,31 @@
                   <id>attach-javadocs</id>
                   <goals>
                     <goal>jar</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.sonatype.plugins</groupId>
+              <artifactId>nexus-staging-maven-plugin</artifactId>
+              <version>1.6.8</version>
+              <extensions>true</extensions>
+              <configuration>
+                <serverId>ossrh</serverId>
+                <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-gpg-plugin</artifactId>
+              <version>1.5</version>
+              <executions>
+                <execution>
+                  <id>sign-artifacts</id>
+                  <phase>verify</phase>
+                  <goals>
+                    <goal>sign</goal>
                   </goals>
                 </execution>
               </executions>
@@ -65,10 +111,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <distributionManagement>
-        <repository>
-            <id>bintray-stachenov-maven</id>
-            <name>stachenov-maven</name>
-            <url>https://api.bintray.com/maven/stachenov/maven/ParameterizedJUnitParams/;publish=1</url>
-        </repository>
+      <snapshotRepository>
+        <id>ossrh</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
     </distributionManagement>
 </project>
